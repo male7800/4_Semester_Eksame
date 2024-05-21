@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+p,
+h2,
+h3,
+h4,
+ul {
+  font-family: "Arial";
+}
