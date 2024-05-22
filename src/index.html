@@ -12,13 +12,13 @@
   </head>
   <body class="">
     <header>
-  <!------burger menu-->
+  <!-----------------------------------------------------------------------START burger menu---------------------------------------------------------------------------------->
   <a href="index.html"><img src="limunt-logo-with-stars-3.png" alt="logo" class="absolute w-32 p-2"/></a>
 <div class="grid grid-cols-2">
   <div id="menuknap" class="absolute z-20 justify-self-end p-4 text-3xl text-white lg:hidden">☰</div>
 </div>
 <nav>
-  <ul id="topnav1" class="absolute z-10 h-screen w-screen bg-blue p-8 text-3xl leading-10 text-white lg:hidden">
+  <ul id="topnav1" class="absolute z-10 h-screen w-screen bg-blue p-8 text-3xl leading-10 text-white lg:hidden hidden">
     <li class="flex">
       Søg
       <form>
@@ -32,19 +32,21 @@
     <li class="underline"><a href="index.html">Forside</a></li>
     <li class="underline"><a href="">Om</a></li>
     <li class="underline"><a href="">Bands</a></li>
-    <li class="underline"><a href="">Kontakt</a></li>
+    <li class="underline"><a href="partnerskab.html">Partnerskab</a></li>
 
   </ul>
-        <!-----alm. menu---->
-        <div class="bg-blue p-4 sm:pt-8">
+   <!---------------------------------------------------------------------------burger menu SLUT----------------------------------------------------------------------------------> 
+   
+   <!---------------------------------------------------------------------------START Web menu------------------------------------------------------------------------------------>
+        <div class="bg-blue p-4 sm:pt-14">
         <div
           class="right-10 mt-8 mr-2 mb-8 hidden justify-end gap-10 text-2xl text-white lg:flex"
         >
           <ul x-data="{open: false}" id="topnav2" class="flex gap-7">
             <li><a href="index.html" class="no-underline hover:underline">Forside</a></li>
-            <li><a href="" class="no-underline hover:underline">Om</a></li>
+            <li><a href="om.html" class="no-underline hover:underline">Om</a></li>
             <li><a href="" class="no-underline hover:underline">Bands</a></li>
-            <li><a href="" class="no-underline hover:underline">Kontakt</a></li>
+            <li><a href="kontakt.html" class="no-underline hover:underline">Kontakt</a></li>
             <li
               @mouseover="open = true"
               @mouseout="open=false"
@@ -59,6 +61,7 @@
       </div>
       </nav>
     </header>
+    <!--------------------------------------------------------------------------SLUT Web menu------------------------------------------------------------------------------------->
 
     <img class="h-500 max-w-full" src="rod-long-YLtf9KqA4h0-unsplash_Kopi.jpg" alt="image description">
 
@@ -69,7 +72,7 @@
       Velkommen til vores kampagne
     </h1>
 
-            <img class="my-20 h-20 max-w-full animate-bounce" src="Arrow_bounce.png" alt="image description">
+            <img class="my-8 h-20 max-w-full animate-bounce" src="Arrow_bounce.png" alt="image description">
   </div>
 
 
