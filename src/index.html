@@ -12,56 +12,55 @@
   </head>
   <body class="">
     <header>
-  <!-----------------------------------------------------------------------START burger menu---------------------------------------------------------------------------------->
-  <a href="index.html"><img src="limunt-logo-with-stars-3.png" alt="logo" class="absolute w-32 p-2"/></a>
-<div class="grid grid-cols-2">
-  <div id="menuknap" class="absolute z-20 justify-self-end p-4 text-3xl text-white lg:hidden">☰</div>
-</div>
-<nav>
-  <ul id="topnav1" class="absolute z-10 h-screen w-screen bg-blue p-8 text-3xl leading-10 text-white lg:hidden hidden">
-    <li class="flex">
-      Søg
-      <form>
-        <label for="default-search" class="sr-only mb-2 text-sm font-medium"></label>
-        <input type="search" class="bg-green-200 ml-2 rounded-sm text-black active:border-white"/>
-      </form>
-      <svg width="32" height="32" viewBox="0 0 18 18">
-        <path fill="#FFFFFF" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/>
-      </svg>
-    </li>
-    <li class="underline"><a href="index.html">Forside</a></li>
-    <li class="underline"><a href="">Om</a></li>
-    <li class="underline"><a href="">Bands</a></li>
-    <li class="underline"><a href="partnerskab.html">Partnerskab</a></li>
-
-  </ul>
-   <!---------------------------------------------------------------------------burger menu SLUT----------------------------------------------------------------------------------> 
-   
-   <!---------------------------------------------------------------------------START Web menu------------------------------------------------------------------------------------>
-        <div class="bg-blue p-4 sm:pt-14">
-        <div
-          class="right-10 mt-8 mr-2 mb-8 hidden justify-end gap-10 text-2xl text-white lg:flex"
-        >
-          <ul x-data="{open: false}" id="topnav2" class="flex gap-7">
-            <li><a href="index.html" class="no-underline hover:underline">Forside</a></li>
-            <li><a href="om.html" class="no-underline hover:underline">Om</a></li>
-            <li><a href="" class="no-underline hover:underline">Bands</a></li>
-            <li><a href="kontakt.html" class="no-underline hover:underline">Kontakt</a></li>
-            <li
-              @mouseover="open = true"
-              @mouseout="open=false"
-              class="cursor-pointer"
-            >
-            </li>
-            <li>
-
-            </li>
-          </ul>
-        </div>
-      </div>
-      </nav>
-    </header>
-    <!--------------------------------------------------------------------------SLUT Web menu------------------------------------------------------------------------------------->
+ <!-----------------------------------------------------------------------START burger menu---------------------------------------------------------------------------------->
+ <a href="index.html"><img src="limunt-logo-with-stars-3.png" alt="logo" class="absolute w-32 p-2"/></a>
+ <div class="grid grid-cols-2">
+   <div id="menuknap" class="absolute z-20 justify-self-end p-4 text-3xl text-black lg:hidden">☰</div>
+ </div>
+ <nav>
+   <ul id="topnav1" class="absolute z-10 h-screen w-screen bg-blue p-8 text-3xl leading-10 text-white lg:hidden hidden">
+     <li class="flex">
+       Søg
+       <form>
+         <label for="default-search" class="sr-only mb-2 text-sm font-medium"></label>
+         <input type="search" class="bg-green-200 ml-2 rounded-sm text-black active:border-white"/>
+       </form>
+       <svg width="32" height="32" viewBox="0 0 18 18">
+         <path fill="#FFFFFF" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/>
+       </svg>
+     </li>
+     <li class="underline"><a href="index.html">Forside</a></li>
+     <li class="underline"><a href="om.html">Om</a></li>
+     <li class="underline"><a href="bands.html">Bands</a></li>
+     <li class="underline"><a href="partnerskab.html">Partnerskab</a></li>
+ 
+   </ul>
+    <!---------------------------------------------------------------------------burger menu SLUT----------------------------------------------------------------------------------> 
+    
+    <!---------------------------------------------------------------------------START Web menu------------------------------------------------------------------------------------>
+         <div class="bg-white">
+         <div class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+          <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+           <ul x-data="{open: false}" id="topnav2" class="flex gap-7">
+             <li><a href="index.html" class="no-underline hover:underline">Forside</a></li>
+             <li><a href="om.html" class="no-underline hover:underline">Om</a></li>
+             <li><a href="bands.html" class="no-underline hover:underline">Bands</a></li>
+             <li><a href="partnerskab.html" class="no-underline hover:underline">Kontakt</a></li>
+             <li
+               @mouseover="open = true"
+               @mouseout="open=false"
+               class="cursor-pointer"
+             >
+             </li>
+             <li>
+ 
+             </li>
+           </ul>
+         </div>
+       </div>
+       </nav>
+     </header>
+     <!--------------------------------------------------------------------------SLUT Web menu------------------------------------------------------------------------------------->
 
     <img class="h-500 max-w-full" src="rod-long-YLtf9KqA4h0-unsplash_Kopi.jpg" alt="image description">
 

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detaljesiden</title>
+
+    <style>
+      body {
+        background-color: #9fa1ff;
+      }
+
+      section {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 10px;
+      }
+      article {
+        border-radius: 5px;
+        border: 4px solid #7d7d7d;
+        padding: 10px;
+
+        background-color: white;
+      }
+
+      img {
+        max-width: 40%;
+      }
+
+      button:hover {
+        background-color: #7d7d7d;
+      }
+
+      button {
+        background-color: #3f5efb;
+        font-size: 16px;
+        display: flex;
+        border: ridge;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <button>Tilbage</button>
+      <article>
+        <img src="" alt="" class="billede" />
+        <h3></h3>
+        <p>Kategori: <span class="kategori"></span></p>
+        <p>Navn: <span class="navn"></span></p>
+        <p>Region: <span class="oprindelsesregion"></span></p>
+        <p>Beskrivelse: <span class="langbeskrivelse"></span></p>
+        <p>Pris: <span class="pris"></span></p>
+      </article>
+    </main>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get("id");
+      const md = "-md.jpg";
+      let ret;
+
+      const myHeaders = {
+        "x-apikey": "600ec2fb1346a1524ff12de4",
+      };
+      console.log("ID", id);
+      document.addEventListener("DOMContentLoaded", loadJSON);
+
+      async function loadJSON() {
+        const JSONData = await fetch(
+          `https://babushka-dd8a.restdb.io/rest/menu/${id}`,
+          {
+            headers: myHeaders,
+          }
+        );
+        ret = await JSONData.json();
+        visRet(ret);
+      }
+
+      function visRet() {
+        console.log(ret);
+        document.querySelector(".navn").textContent = ret.navn;
+        document.querySelector(".billede").src =
+          "billede/" + ret.billednavn + md;
+
+        document.querySelector(".langbeskrivelse").textContent =
+          ret.langbeskrivelse;
+        document.querySelector(".oprindelsesregion").textContent =
+          ret.oprindelsesregion;
+        document.querySelector(".kategori").textContent = ret.kategori;
+        document.querySelector(".pris").textContent = ret.pris + "kr.";
+        document
+          .querySelector("button")
+          .addEventListener("click", tilbageTilBabushka);
+      }
+
+      function tilbageTilBabushka() {
+        history.back();
+      }
+    </script>
+  </body>
+</html>

@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    <title>Partnerskab</title>
+    <title>Bands</title>
   </head>
 
     <script type="module" src="./main.js"></script>
@@ -23,7 +23,7 @@
                         <a class="hover:underline" href="om.html">Om</a>
                     </li>
                     <li>
-                        <a class="hover:underline" href="bands.html">Bands</a>
+                        <a class="hover:underline" href="#">Bands</a>
                     </li>
                     <li>
                         <a class="hover:underline" href="partnerskab.html">Partnerskaber</a>
@@ -33,7 +33,6 @@
             <div class="flex items-center gap-6">
                 <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
             </div>
-        </nav>
     </header>
 
     <script>
@@ -51,33 +50,169 @@
     
     <section class="inview1 grid place-items-center">
         <h3 class="mt-8 p-2 text-center text-3xl">
-          Partnerskaber
+          Vores bands!
               </h3>
         <p class="max-w-[600px] p-4">
-            Vi har booket musik siden 2016 og har haft fornøjelsen af at møde interessante og professionelle personer og virksomheder i eventbranchen. Idag har vi fornøjelsen af at arbejde sammen med nogle stykker af dem. Fælles for dem alle er at de udfører et professionelt stykke arbejde med at få events til at gå op i en højere enhed. Vi kommer løbende til at tilføje til denne liste. Kontakt os, hvis du ønsker anbefaler til andre leverandører end, hvad du finder her!
+          Er du på jagt efter at booke den helt rigtige musik til din fest?  Det kan være svært at vide, hvilket band der er det rigtige, om de er dygtige nok, og hvordan de lyder live. Hvis du er interesseret i at bestille live musik, er du landet det rigtige sted her hos Limunt. Vi er nemlig her for at hjælpe. Gennem Limunt kan du booke live band i mange forskellige genrer og stilarter.
+
+          Vi har samlet Danmarks dygtigste musikere og bands og har gjort det nemt for dig at vælge. Her er noget for enhver smag! Vi glæder os til at hjælpe dig med den rigtige musik booking!
         </p>
     </section>
 
-  <div class="grid place-items-center p-8">
+    
+    <style>
+
+      section {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 10px;
+      }
+      article {
+        border-radius: 10px;
+        border: 4px solid #7d7d7d;
+        padding: 10px;
+        background-color: white;
+      }
+
+ 
+
+      nav {
+        display: flex;
+        place-content: center;
+        grid-gap: 0.5rem;
+        padding-bottom: 1rem;
+        overflow-x: auto;
+      }
+
+      button:hover {
+        background-color: #7d7d7d;
+      }
+
+      button {
+        background-color: #3f5efb;
+        font-size: 16px;
+        display: flex;
+        border: ridge;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+      }
+
+      .title {
+        display: flex;
+        place-content: center;
+        font-family: pinot-grigio-modern, sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 2.5rem;
+        color: white;
+      }
 
 
-  <form>
-    <div class ="grid mt-8">
-            <input type="text" class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500 w-[275px] sm:w-[475px]" placeholder="Dit navn (skal udfyldes)"/>
+    </style>
 
-            <input type="text" class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500 w-[275px] sm:w-[475px]" placeholder="Din e-mail (skal udfyldes)"/>
+  <div class="">
 
-            <input type="text" class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500 w-[275px] sm:w-[475px]" placeholder="Emne"/>
-
-            <textarea cols="10" rows ="5" class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500 w-[275px] sm:w-[475px]" placeholder="Beskrivelse" ></textarea>
-            
-            <div class="pt-5">
-            <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold py-2 px-4 bg-white w-[275px] sm:w-[475px]">
-              INDSEND
-            </button>
-          </div>
+    <div class="image">
+      <img src="" alt="" class="" />
     </div>
-  </form>
+    <h3 class="mt-8 p-2 text-center text-3xl">
+      Udvalg
+    </h3>
+
+    <nav>
+      <button data-kategori="alle" class="valgte">Alle</button>
+      <button data-kategori="forretter">Forretter</button>
+      <button data-kategori="hovedretter">Hovedretter</button>
+      <button data-kategori="desserter">Desserter</button>
+      <button data-kategori="drikkevarer">Drikkevarer</button>
+    </nav>
+
+    <div class="">
+    <section id="liste"></section>
+    </div>
+
+    <template>
+      <article>
+        <img src="" alt="" class="billede" />
+        <h3></h3>
+        <p>Beskrivelse: <span class="kortbeskrivelse"></span></p>
+        <p><span class="pris"></span></p>
+      </article>
+    </template>
+
+    <script>
+      const header = document.querySelector("header h1");
+      const medieurl = "https://babushka-dd8a.restdb.io/rest/menu";
+      const myHeaders = {
+        "x-apikey": "600ec2fb1346a1524ff12de4",
+      };
+      document.addEventListener("DOMContentLoaded", start);
+      let retter;
+      let filter = "alle";
+
+      // første funktion der kaldes efter DOM er loaded
+      function start() {
+        const filterKnapper = document.querySelectorAll("nav button");
+        filterKnapper.forEach((knap) =>
+          knap.addEventListener("click", filtrerRetter)
+        );
+        loadJSON();
+      }
+
+      function filtrerRetter() {
+        filter = this.dataset.kategori;
+        visRetter();
+        header.textContent = this.textContent;
+        //console.log(this);
+      }
+
+      async function loadJSON() {
+        const JSONData = await fetch(
+          "https://babushka-dd8a.restdb.io/rest/menu",
+          {
+            headers: myHeaders,
+          }
+        );
+        retter = await JSONData.json();
+        console.log("Retter", retter);
+        visRetter();
+      }
+
+      //funktion der viser personer i liste view
+      function visRetter() {
+        const dest = document.querySelector("#liste"); // container til articles med en person
+        const skabelon = document.querySelector("template").content; // select indhold af html skabelon (article)
+        const md = "-md.jpg";
+
+        dest.textContent = "";
+        retter.forEach((ret) => {
+          console.log("Kategori", ret.kategori);
+          // loop igennem json (personer)
+          if (filter == ret.kategori || filter == "alle") {
+            const klon = skabelon.cloneNode(true);
+            klon.querySelector(".billede").src =
+              "billede/" + ret.billednavn + md;
+            klon.querySelector("h3").textContent = ret.navn;
+            klon.querySelector(".kortbeskrivelse").textContent =
+              ret.kortbeskrivelse;
+            klon.querySelector(".pris").textContent = "Pris:" + ret.pris;
+            klon
+              .querySelector("article")
+              .addEventListener("click", () => visDetaljer(ret));
+            dest.appendChild(klon);
+          }
+        });
+      }
+
+      function visDetaljer(hvem) {
+        location.href = `detaljer.html?id=${hvem._id}`;
+      }
+    </script>
 
 
 
