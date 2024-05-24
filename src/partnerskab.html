@@ -10,46 +10,62 @@
 
     <script type="module" src="./main.js"></script>
     <header class="bg-white">
-        <nav class="flex justify-between items-center w-[92%]  mx-auto">
-            <div>
-                <img class="w-16 cursor-pointer" src="limunt-logo-with-stars-3.png" alt="...">
-            </div>
-            <div class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
-                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
-                    <li>
-                        <a class="hover:underline" href="index.html">Forside</a>
-                    </li>
-                    <li>
-                        <a class="hover:underline" href="om.html">Om</a>
-                    </li>
-                    <li>
-                        <a class="hover:underline" href="bands.html">Bands</a>
-                    </li>
-                    <li>
-                        <a class="hover:underline" href="partnerskab.html">Partnerskaber</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex items-center gap-6">
-                <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
-            </div>
-        </nav>
+<!-----------------------------------------------------------------------START burger menu---------------------------------------------------------------------------------->
+<a href="index.html"><img src="limunt-logo-with-stars-3.png" alt="logo" class="absolute w-32 p-2"/></a>
+<div class="grid grid-cols-2">
+  <div id="menuknap" class="absolute z-20 justify-self-end p-4 text-3xl text-black lg:hidden">☰</div>
+</div>
+<nav>
+  <ul id="topnav1" class="absolute z-10 h-screen w-screen bg-blue p-8 text-3xl leading-10 text-white lg:hidden hidden">
+    <li class="flex">
+      Søg
+      <form>
+        <label for="default-search" class="sr-only mb-2 text-sm font-medium"></label>
+        <input type="search" class="bg-green-200 ml-2 rounded-sm text-black active:border-white"/>
+      </form>
+      <svg width="32" height="32" viewBox="0 0 18 18">
+        <path fill="#FFFFFF" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/>
+      </svg>
+    </li>
+    <li class="underline"><a href="index.html">Forside</a></li>
+    <li class="underline"><a href="om.html">Om</a></li>
+    <li class="underline"><a href="bands.html">Bands</a></li>
+    <li class="underline"><a href="partnerskab.html">Partnerskab</a></li>
+
+  </ul>
+   <!---------------------------------------------------------------------------burger menu SLUT----------------------------------------------------------------------------------> 
+   
+   <!---------------------------------------------------------------------------START Web menu------------------------------------------------------------------------------------>
+        <div class="bg-white">
+        <div class="right-10 mt-8 mr-2 mb-8 hidden justify-end gap-10 text-2xl text-black lg:flex">
+         <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+          <ul x-data="{open: false}" id="topnav2" class="flex gap-7">
+            <li><a href="index.html" class="no-underline hover:underline">Forside</a></li>
+            <li><a href="om.html" class="no-underline hover:underline">Om</a></li>
+            <li><a href="bands.html" class="no-underline hover:underline">Bands</a></li>
+            <li><a href="partnerskab.html" class="no-underline hover:underline">Partnerskaber</a></li>
+            <li
+              @mouseover="open = true"
+              @mouseout="open=false"
+              class="cursor-pointer"
+            >
+            </li>
+            <li>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+      </nav>
     </header>
 
-    <script>
-        const navLinks = document.querySelector('.nav-links')
-        function onToggleMenu(e){
-            e.name = e.name === 'menu' ? 'close' : 'menu'
-            navLinks.classList.toggle('top-[9%]')
-        }
-    </script>
     
 <body>
     <img class="h-500 max-w-full" src="rod-long-YLtf9KqA4h0-unsplash_Kopi.jpg" alt="image description">
 
 <div class="bg-gradient-to-t from-blue to-white h-screen">
     
-    <section class="inview1 grid place-items-center">
+    <section class="inview1 grid place-items-center mt-8">
         <h3 class="mt-8 p-2 text-center text-3xl">
           Partnerskaber
               </h3>
@@ -58,26 +74,43 @@
         </p>
     </section>
 
-  <div class="grid place-items-center p-8">
-
-
-  <form>
-    <div class ="grid mt-8">
-            <input type="text" class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500 w-[275px] sm:w-[475px]" placeholder="Dit navn (skal udfyldes)"/>
-
-            <input type="text" class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500 w-[275px] sm:w-[475px]" placeholder="Din e-mail (skal udfyldes)"/>
-
-            <input type="text" class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500 w-[275px] sm:w-[475px]" placeholder="Emne"/>
-
-            <textarea cols="10" rows ="5" class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500 w-[275px] sm:w-[475px]" placeholder="Beskrivelse" ></textarea>
-            
-            <div class="pt-5">
-            <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold py-2 px-4 bg-white w-[275px] sm:w-[475px]">
-              INDSEND
-            </button>
-          </div>
+    <div class="grid place-content-center">
+      <a href=""><button class="my-8 w-85 rounded-md bg-green p-2 animate-bounce">Klik her for og besøge vores hjemmeside!</button>
+      </a>
     </div>
-  </form>
+
+  <div class="">
+
+    <section class="grid place-items-center p-8">
+
+     <!----------------------Når man fjerner grid i inspect så går den ind irækker i mobil versionen--------------------------->
+      <div class="grid grid-cols-4 md:grid-cols-4 gap-4 ">
+        <div>
+          <img class="h-auto max-w-full rounded-lgl" src="Ikke-navngivet-1_0000s_0002_310636561_629823178485504_6426204790523619138_n.jpg" alt="">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="Ikke-navngivet-1_0000s_0003_SANDERS-LOGO-05-e1487169365202.jpg" alt="">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="Ikke-navngivet-1_0000s_0004_logo-sort-red.jpg" alt="">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="Ikke-navngivet-1_0000s_0005_Skaermbillede-2022-11-09-kl.-08.15.15.jpg" alt="">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="Ikke-navngivet-1_0000s_0006_Skaermbillede-2022-11-09-kl.-08.17.13.jpg" alt="">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="Ikke-navngivet-1_0000s_0008_email_header_logo.jpg" alt="">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="Ikke-navngivet-1_0000s_0009_logo_nyt.jpg" alt="">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="Ikke-navngivet-1_0000s_0010_Christel_Winthe_logo_e9195457-486c-40a7-859d-58a35733bdfd.jpg.jpg" alt="">
+        </div>
+      </div>
+  </section>
 
 
 
