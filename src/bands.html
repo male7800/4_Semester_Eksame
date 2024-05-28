@@ -96,9 +96,20 @@
         border: 4px solid #7d7d7d;
         padding: 10px;
         background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        padding: 50px;
+        padding-top: 90px;
       }
 
+      article img:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+      }
 
+  
       button {
         display: flex;
         justify-content: center;
@@ -153,10 +164,12 @@
   <div class="grid place-items-center">
     <nav class="lokalNav">
       <button data-kategori="alle" class="valgte">Alle</button>
-      <button data-kategori="forretter">Forretter</button>
-      <button data-kategori="hovedretter">Hovedretter</button>
-      <button data-kategori="desserter">Desserter</button>
-      <button data-kategori="drikkevarer">Drikkevarer</button>
+      <button data-kategori="partyband">Party band</button>
+      <button data-kategori="klassiskmusik">Klassisk musik</button>
+      <button data-kategori="bossanova">Bossa nova</button>
+      <button data-kategori="jazzband">Jazzband</button>
+      <button data-kategori="streetmusic">Street music</button>
+      <button data-kategori="lounge">Lounge</button>
     </nav>
   </div>
 
@@ -170,15 +183,13 @@
       <article>
         <img src="" alt="" class="billede" />
         <h3></h3>
-       <p>Kort beskrivelse: <span class="kortbeskrivelse"></span></p>
-      <p><span class="pris"></span></p>
       </article>
     </template>
 
     <script>
       const header = document.querySelector("header h1");
-      const medieurl = "https://babushka-dd8a.restdb.io/rest/menu";
-      const myHeaders = { "x-apikey": "600ec2fb1346a1524ff12de4",};
+      const medieurl = "https://livemusik-5f7d.restdb.io/rest/bands";
+      const myHeaders = { "x-apikey": "6655c084e4b766d1c4c2ac14",};
       document.addEventListener("DOMContentLoaded", start);
       let retter;
       let filter = "alle";
@@ -201,7 +212,7 @@
 
       async function loadJSON() {
         const JSONData = await fetch(
-          "https://babushka-dd8a.restdb.io/rest/menu",
+          "https://livemusik-5f7d.restdb.io/rest/bands",
           {
             headers: myHeaders,
           }
@@ -211,27 +222,21 @@
         visRetter();
       }
 
-      //funktion der viser personer i liste view
+      //funktion der viser bands i liste view
       function visRetter() {
-        const dest = document.querySelector("#liste"); // container til articles med en person
+        const dest = document.querySelector("#liste"); // container til articles med en band
         const skabelon = document.querySelector("template").content; // select indhold af html skabelon (article)
-        const md = "-md.jpg";
+        const md = "-md.webp";
 
         dest.textContent = "";
         retter.forEach((ret) => {
           console.log("Kategori", ret.kategori);
-          // loop igennem json (personer)
+          // loop igennem json (bands)
           if (filter == ret.kategori || filter == "alle") {
             const klon = skabelon.cloneNode(true);
-            klon.querySelector(".billede").src =
-              "billede/" + ret.billednavn + md;
+            klon.querySelector(".billede").src = "billede/" + ret.billednavn + md;
             klon.querySelector("h3").textContent = ret.navn;
-            klon.querySelector(".kortbeskrivelse").textContent =
-              ret.kortbeskrivelse;
-            klon.querySelector(".pris").textContent = "Pris:" + ret.pris;
-            klon
-              .querySelector("article")
-              .addEventListener("click", () => visDetaljer(ret));
+            klon.querySelector("article").addEventListener("click", () => visDetaljer(ret));
             dest.appendChild(klon);
           }
         });
