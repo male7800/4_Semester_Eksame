@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title>Om</title>
+    <title>Band</title>
   </head>
 
     <script type="module" src="./main.js"></script>
@@ -63,13 +63,14 @@
 
     
 <body>
-    <img class=" max-w-full" src="panos-sakalakis-63sI4HO30tw-unsplash_Kopi.jpg" alt="">
+    <img class=" max-w-full" src="parvez-azarqaderi-jqvpD7xwLns-unsplash_Kopii.jpg" alt="">
 
 <div class="bg-gradient-to-t from-blue to-white ">
     
 </head>
 <body>
   <style>
+
 
 
 article {
@@ -81,6 +82,8 @@ article {
         cursor: pointer;
         padding: 50px;
         padding-top: 90px;
+        width: 600px;
+
       }
 
 
@@ -124,10 +127,7 @@ article {
       margin-top: 100px;
     }
 
-      main {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-      }
+
 
       article {
         background-color: white;
@@ -138,20 +138,18 @@ article {
         padding: 0px;
       }
   
-
-  
-
-   
   </style>
 </head>
 <body>
 
 
-  <main>
+  
    
-    <img src="" alt="" class="billede" />
+    
     <article>
-      
+      <div>
+      <img src="" alt="" class="billede" />
+
       <h3></h3>
       
       <p><span class="navn"></span></p>
@@ -159,7 +157,10 @@ article {
       <p>Beskrivelse: <span class="langbeskrivelse"></span></p>
       <br>
       <button>Tilbage til Bands siden</button>
+    </div>
     </article>
+
+  
     <br>
    
     <section class="grid place-items-center">
@@ -172,7 +173,7 @@ article {
 
     <br>
 
-  </main>
+  
 
   <script>
     const urlParams = new URLSearchParams(window.location.search);
@@ -201,7 +202,7 @@ article {
       console.log(ret);
       document.querySelector(".navn").textContent = ret.navn;
       document.querySelector(".billede").src =
-        "billede/" + ret.billednavn + md;
+        "billede/" + ret.billede + md;
 
       document.querySelector(".langbeskrivelse").textContent = ret.langbeskrivelse;
 

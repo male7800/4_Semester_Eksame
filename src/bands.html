@@ -242,7 +242,7 @@
           // loop igennem json (bands)
           if (filter == ret.kategori || filter == "alle") {
             const klon = skabelon.cloneNode(true);
-            klon.querySelector(".billede").src = "billede/" + ret.billednavn + md;
+            klon.querySelector(".billede").src = "billede/" + ret.billede + md;
             klon.querySelector("h3").textContent = ret.navn;
             klon.querySelector("article").addEventListener("click", () => visDetaljer(ret));
             dest.appendChild(klon);
